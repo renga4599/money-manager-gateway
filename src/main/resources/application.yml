@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: mm-gateway
+
+server:
+  port: 8080
+  servlet:
+    context-path: /${spring.application.name}
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method
+  api-docs:
+    path: /api-docs
+
+# Enabled Vs Exposed
+## Enable ==> All the endpoints except shutdown is enabled by default. You can enable it too. You can also enable only the specific endpoints
+## Expose ==> By default only the health endpoint is exposed. You can expose the others too.
+## Expose ==> Endpoints are exposed via two ways. 1. web (like http call) 2. JMX bean. We usually use web
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    jmx:
+      exposure:
+        include: "health,info"
+        exclude: "env,beans"
