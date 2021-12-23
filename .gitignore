@@ -18,6 +18,8 @@ target/
 *.iws
 *.iml
 *.ipr
+*.ids
+*.orig
 
 ### NetBeans ###
 /nbproject/private/
@@ -31,3 +33,38 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Directories
+
+/build/
+/bin/
+/deploy/
+
+### Logs
+*.log
+
+### Maven Wrapper
+!.mvn/wrapper/maven-wrapper.jar
+
+### Maven
+log/
+target/
+
+### Other
+*.class
+*.*~
+*~
+.merge_file*
+
+### Packaeg files
+*.jar
+*.war
+*.ear
+*.db
+
+# Folder config file
+Desktop.ini
+
+## Mac OS X
+.DS_Store
+.svn
