@@ -16,17 +16,48 @@
 	<properties>
 		<java.version>17</java.version>
 		<mm.common.version>0.0.1-SNAPSHOT</mm.common.version>
+		<spring-cloud.verion>Greenwich.SR3</spring-cloud.verion>
+<!--		<mm.config.version>0.0.1-SNAPSHOT</mm.config.version>-->
 	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-dependencies -->
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Hoxton.SR1</version>
+				<type>pom</type>
+				<scope>runtime</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
 
 		<dependency>
 			<groupId>com.renga.money.manager</groupId>
 			<artifactId>money-manager-common</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>${mm.common.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-oauth2</artifactId>
+<!--			<version>${spring-cloud.verion}</version>-->
+		</dependency>
+
+<!--		<dependency>
+			<groupId>com.renga.money.manager</groupId>
+			<artifactId>money-manager-config</artifactId>
+			<version>${mm.config.version}</version>
+		</dependency>-->
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-bootstrap -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-bootstrap</artifactId>
+			<version>3.1.0</version>
 		</dependency>
 
 		<dependency>
@@ -34,11 +65,13 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
 	</dependencies>
 
 	<build>

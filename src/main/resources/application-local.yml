@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: mm-gateway
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+#    url: jdbc:h2:file:./data/myDB
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    jmx:
+      exposure:
+        include: "health,info"
+        exclude: "env,beans"

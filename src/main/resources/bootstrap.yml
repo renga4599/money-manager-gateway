@@ -1,0 +1,8 @@
+#spring:
+#  renga:
+#    name: Hwllow
+#  application:
+#    name: mm-gateway
+#  config:
+#    additional-location: classpath:/
+#    name: application,application-{profile},mm-gateway

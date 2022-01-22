@@ -1,0 +1,51 @@
+spring:
+  application:
+    name: mm-gateway
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+#    url: jdbc:h2:file:./data/myDB
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+server:
+  port: 8080
+  servlet:
+    context-path: /${spring.application.name}
+
+##### Swagger ui & Open API ########
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method
+  api-docs:
+    path: /api-docs
+
+
+####### Actuator ##################
+# Enabled Vs Exposed
+## Enable ==> All the endpoints except shutdown is enabled by default. You can enable it too. You can also enable only the specific endpoints
+## Expose ==> By default only the health endpoint is exposed. You can expose the others too.
+## Expose ==> Endpoints are exposed via two ways. 1. web (like http call) 2. JMX bean. We usually use web
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    jmx:
+      exposure:
+        include: "health,info"
+        exclude: "env,beans"

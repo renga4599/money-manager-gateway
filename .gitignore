@@ -44,11 +44,9 @@ build/
 *.log
 
 ### Maven Wrapper
-!.mvn/wrapper/maven-wrapper.jar
 
 ### Maven
 log/
-target/
 
 ### Other
 *.class

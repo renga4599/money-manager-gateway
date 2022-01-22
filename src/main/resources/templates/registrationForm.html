@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Page</title>
+    <style type="text/css">
+        label {
+            display: inline-block;
+            width: 200px;
+            margin: 5px;
+            text-align: left;
+        }
+        input[type=text], input[type=password], select {
+            display: inline-block;
+            width: 200px;
+        }
+        input[type=radio] {
+            margin-left: 45px;
+        }
+        input[type=checkbox] {
+            margin-right: 190px;
+        }
+        button {
+            padding: 5px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<h2>Register</h2>
+
+<div align="center">
+<form action="#" th:action="@{/register}" method="post" th:object="${userDetailsRequestWrapper}">
+
+    <label>First name:</label>
+    <input name="firstName" th:field="*{firstName}"/> <br/>
+
+    <label>Last name:</label>
+    <input name="lastName" th:field="*{lastName}"/> <br/>
+
+    <label>Email</label>
+    <input type="email" name="email" th:field="*{email}"/> <br/>
+
+    <label>Sex:</label>
+    <input type="radio" th:field="*{sex}" value="MALE" />Male
+    <input type="radio" th:field="*{sex}" value="FEMALE" />Female<br/>
+    <input type="radio" th:field="*{sex}" value="THIRD_TYPE" />Third Type<br/>
+
+    <label>Birth date:</label>
+    Birth Date: <input type="date" name="dob" th:field="*{dob}"/> <br/>
+    <input type="password" id="password" autocomplete="off" th:field="*{password}"/>
+
+    <button type="submit">Register</button>
+</form>
+</div>
+</body>
+</html>

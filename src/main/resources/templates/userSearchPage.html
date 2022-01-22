@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Get User Details</title>
+</head>
+<body>
+<form action="#" th:action="@{/searchUserDetails}" method="post" th:object="${userDetailsRequestWrapper}">
+    <label>Email</label>
+    <input type="email" name="email" th:field="*{email}"/> <br/>
+
+    <button type="submit">Register</button>
+</form>
+
+</body>
+</html>
